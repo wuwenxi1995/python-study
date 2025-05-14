@@ -1,8 +1,14 @@
+# -*- coding: utf-8 -*-
+# @Time    : 2025/5/14 22:06
+# @Author  : wuwenxi
+
 """
 List:列表 => [10,20,30] ['Tom','Jack','James']
+特性: 有序集合, 元素类型可以不同类型类似java中存储obj对象
 
 列表基本操作:
-    添加元素：append() 在列表末尾添加一个元素; extend() 将另一个列表添加到当前列表的末尾
+    添加元素：append(obj) 在列表末尾添加一个元素; extend(obj) 将另一个列表添加到当前列表的末尾
+            insert(index,obj) 在指定位置前插入元素; 添加元素时如果是元组可以将元组对象加入到列表中
     count(x): 统计列表中元素 x 出现的次数
     pop([i]): 删除列表中指定位置的元素，并返回被删除的元素; 如果未指定 i 则移除末尾的元素
     copy(): 浅拷贝
@@ -18,6 +24,16 @@ List:列表 => [10,20,30] ['Tom','Jack','James']
 
 fruits = ['orange', 'apple', 'pear', 'banana', 'kiwi', 'apple', 'banana']
 print("apple count: ", fruits.count("apple"))
+
+f = ('water1', 'water2')
+fruits.insert(2, f)
+print('insert: ', fruits)
+# 输出: ==>  ['orange', 'apple', ('water1', 'water2'), 'pear', 'banana', 'kiwi', 'apple', 'banana']
+
+fruits.append(f)
+print('append: ', fruits)
+
+#　输出: ==> ['orange', 'apple', ('water1', 'water2'), 'pear', 'banana', 'kiwi', 'apple', 'banana', ('water1', 'water2')]
 
 copy = fruits.copy()
 copy.extend(fruits)

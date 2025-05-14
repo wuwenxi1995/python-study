@@ -171,3 +171,11 @@ while index < len(search_list):
     index += 1
 else:
     print(f"Target {target} not found in the list.")
+
+'''
+九九乘法表
+'''
+for col in range(10):
+    for row in range(1, col + 1):
+        print(f'{row} * {col} = {row * col}', end='\t')
+    print()
