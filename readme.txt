@@ -32,9 +32,8 @@ python项目开发标准
     source myenv/bin/activate  # macOS/Linux
     # .\myenv\Scripts\activate  # Windows
 4. 依赖管理
-    在 requirements.txt 文件中列出项目的所有依赖项，并使用 pip freeze > requirements.txt 来生成该文件。也可以使用 setup.py 来定义包的元数据和依赖项
-    使用阿里云镜像加速下载
-        pip install tensorflow -i https://mirrors.aliyun.com/pypi/simple/
+    1. 在 requirements.txt 文件中列出项目的所有依赖项，并使用 pip freeze > requirements.txt 来生成该文件。也可以使用 setup.py 来定义包的元数据和依赖项
+    2. 使用pip install -r requirements.txt -i https://mirrors.aliyun.com/pypi/simple/安装所有依赖包
 5. 单元测试
     编写单元测试以确保代码的正确性。可以使用 unittest 或 pytest 等测试框架。通常将测试文件放在 tests/ 目录下，并命名为 test_*.py
 6. 版本控制
