@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+# @Time    : 2025/5/20 09:56
+# @Author  : wuwenxi
+
 """
 把一种类型转换成另外一种
 int(变量) 将变量转化为整数类型
@@ -7,7 +11,6 @@ list() 变量转换为数组
 tuple() 变量转换为元组
 dict() 变量转换为字典
 """
-
 str1 = '9'
 num1 = int(str1)
 print(num1, type(num1), sep=',')
@@ -25,5 +28,5 @@ print(to_list, type(to_list), sep=',')
 to_tuple = tuple(('1', '2', 3))
 print(to_tuple, type(to_tuple), sep=',')
 
-to_dict = dict(tom="TOM", jack="JACK")
+to_dict = dict(name="TOM", age=20)
 print(to_dict, type(to_dict), sep=',')

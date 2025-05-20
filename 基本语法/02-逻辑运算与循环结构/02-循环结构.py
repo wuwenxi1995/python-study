@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+# @Time    : 2025/5/20 10:20
+# @Author  : wuwenxi
+
 """
 1. for循环基本语法
 

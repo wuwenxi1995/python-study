@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+# @Time    : 2025/5/20 10:19
+# @Author  : wuwenxi
+
 """
 逻辑运算符
  and : x and y, boolean与, x和y 需要同时满足为 True, x和y 只有一个为 False 表达式为False 等同于java中&&
