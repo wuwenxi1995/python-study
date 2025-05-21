@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+# @Time    : 2025/5/21 21:54
+# @Author  : wuwenxi
+
 """
 解包赋值是 Python 中一种强大的特性，它允许你将一个可迭代对象中的元素分配给多个变量。这种操作可以简化代码并提高可读性。
 Python 支持多种解包模式，包括简单的序列解包、嵌套解包以及使用星号（*）进行剩余项的收集
@@ -22,6 +26,12 @@ print(first, second, third, fourth)  # 输出: a b c d
 
 w, (x, y), z = (7, (8, 9), 10)
 print(w, x, y, z)  # 输出: 7 8 9 10
+
+x, (y1, y2), z, m1 = [1, (2, 3), 4, {"name": "tom", "age": 20}]
+print(x, y1, y2, z, m1)  # ==> 输出：1 2 3 4 {'name': 'tom', 'age': 20}
+
+x, y, z, m1 = [1, (2, 3), 4, {"name": "tom", "age": 20}]
+print(x, y, z, m1)  # ==> 输出：1 (2, 3) 4 {'name': 'tom', 'age': 20}
 
 # 使用星号收集剩余项
 print(10 * '*', '使用星号收集剩余项')
@@ -57,4 +67,4 @@ def func(m, n, p):
     print(m, n, p)
 
 
-func(**{'a': 1, 'b': 2, 'c': 3})
+func(**{'m': 1, 'n': 2, 'p': 3})

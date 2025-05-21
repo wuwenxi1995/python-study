@@ -61,3 +61,6 @@ students = [
     {"name": "Charlie", "age": 22}]
 for i, v in enumerate(students, 1):
     print(i, students[i - 1])
+
+print(list(enumerate(students))) # ==> 输出: [(0, {'name': 'Alice', 'age': 20}), (1, {'name': 'Bob', 'age': 18}), (2, {'name': 'Charlie', 'age': 22})]
+print(dict(enumerate(students))) # ==> 输出: {0: {'name': 'Alice', 'age': 20}, 1: {'name': 'Bob', 'age': 18}, 2: {'name': 'Charlie', 'age': 22}}
