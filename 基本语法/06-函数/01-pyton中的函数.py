@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+# @Time    : 2025/5/20 17:35
+# @Author  : wuwenxi
+
 """
 1. 函数
     1.1. 使用def关键字进行函数定义,函数名与括号内的形参列表
@@ -139,6 +143,40 @@
         pairs.sort(key=lambda pair: pair[1])
         print(pairs)
 """
+
+
+def funa():
+    a = 5
+    b = [1, 2, 3]
+    c = {"name": "tom", "age": 20}
+    return a, b, c
+
+
+print(funa())  # ==> 输出: (5, [1, 2, 3], {'name': 'tom', 'age': 20})
+
+a, b, c = funa()
+print(a, b, c, sep=",")
+
+
+def func(a=12):
+    return a
+
+
+print(func())  # ==> 输出：12
+print(func(a=1))  # ==> 输出：1
+
+
+def func(*args):
+    print(args)
+    print(type(args))
+
+
+def funk(**keyword):
+    print(keyword)
+    print(type(keyword))
+
+
+funk(name="tom", age=20)
 
 '''
 lambda表达式
