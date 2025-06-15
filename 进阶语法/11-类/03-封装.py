@@ -5,7 +5,7 @@
 
 class Dog:
 
-    def __init__(self, name, age, gender):
+    def __init__(self, name=None, age=None, gender=None):
         self.__name = name
         self.__age = age
         self.__gender = gender
@@ -29,4 +29,4 @@ class Dog:
         self.__gender = gender
 
 
-dog = Dog()
+print(Dog('XXX').get_name())
