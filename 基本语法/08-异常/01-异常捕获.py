@@ -20,5 +20,5 @@ def func():
 try:
     func()
 except Exception as e:
-    print("使用raise抛出异常")
+    print(str(e))
     logging.error('使用raise抛出异常', exc_info=True)

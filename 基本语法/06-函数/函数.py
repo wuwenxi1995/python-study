@@ -50,3 +50,7 @@ def f(name, /, **keymap):
 
 
 f('name', **{'name': 23})
+
+
+def is_prime(num: int, name: str) -> str:
+    return str(num) + name
