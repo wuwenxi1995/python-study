@@ -97,3 +97,8 @@ c = 'python'
 
 print(a, b, c)
 print(type(a), type(b), type(c))
+
+
+a = 321
+b = 123
+print(f'{a} * {b:+.2f} = {a * b}')
