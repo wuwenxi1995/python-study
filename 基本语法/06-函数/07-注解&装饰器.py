@@ -7,10 +7,10 @@ import time
 
 from functools import wraps
 
-
 """
 functools模块的wraps函数也是一个装饰器，我们将它放在wrapper函数上，这个装饰器可以帮我们保留被装饰之前的函数，
 """
+
 
 def record_time(func):
     @wraps(func)
@@ -72,4 +72,3 @@ default = [
 for f in default:
     print(f.planes)
     f()
-
