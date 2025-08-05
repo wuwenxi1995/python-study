@@ -76,18 +76,22 @@ class Restaurant:
             self.waiter[random.randrange(0, self.waiter_num)]()
             self.order_num += 1
             log.info(f'待处理订单{self.order.qsize()}, 总订单数为: {self.order_num}, 厨师数: {len(self.chef)}')
-            if (self.order.qsize() > 20 and len(self.chef) < 2) or (self.order.qsize() > 30 and len(self.chef) < 3):
+            self._expend()
+
+    def _expend(self):
+        if (self.order.qsize() > 20 and len(self.chef) < self.chef_num) or (
+                self.order.qsize() > 30 and len(self.chef) < self.chef_num):
+            new_chef = Chef(self)
+            self.chef.append(new_chef)
+            new_chef.start()
+        elif self.order.qsize() > 50 and len(self.chef) < self.chef_num:
+            for _ in range(len(self.chef), self.chef_num):
                 new_chef = Chef(self)
                 self.chef.append(new_chef)
                 new_chef.start()
-            elif self.order.qsize() > 50 and len(self.chef) < self.chef_num:
-                for _ in range(len(self.chef), self.chef_num):
-                    new_chef = Chef(self)
-                    self.chef.append(new_chef)
-                    new_chef.start()
-            elif self.order.qsize() <= 5 and len(self.chef) > 1:
-                chef = self.chef.pop()
-                chef.undo()
+        elif self.order.qsize() <= 5 and len(self.chef) > 1:
+            chef = self.chef.pop()
+            chef.undo()
 
     def _stop(self):
         if len(self.chef) < self.chef_num:
@@ -127,7 +131,10 @@ class Waiter(t.Thread):
                 break
             try:
                 order = self.orders.get(timeout=0.1)
-                self.consume(order)
+                if order is not None:
+                    # 制作完成 上菜
+                    c = self.customers.get(order)
+                    c[0].consume()
             except Empty:
                 continue
         log.info(f"服务员{self.w_name}结束工作")
@@ -147,11 +154,6 @@ class Waiter(t.Thread):
         self.orders.put(order)
         with self._condition:
             self._condition.notify()
-
-    def consume(self, order):
-        # 制作完成 上菜
-        c = self.customers.get(order)
-        c[0].consume()
 
     def order_complete(self, order):
         log.info(f'订单完成{order.order_no}')
